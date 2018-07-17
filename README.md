@@ -1,10 +1,8 @@
-# linux-server
-
-## Introduction
+# linux-server #
 In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL. In order to access the website, please go to [http://18.191.16.213.xip.io/].
 
 ---------------
-## Summary of Installed Software
+## Summary of Installed Software ##
 These are the main packages that needed to be installed on the server. I found that installing Python libraries via `sudo apt install python3-[package]` was more reliable than Pip, because Pip installed the Python packages only to my user directory and then Python had a hard time detecting them when running a file located in the `/var/www/` directory.
 ```
 apache2
