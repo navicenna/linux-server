@@ -79,9 +79,9 @@ Now go back to the `sshd_config` file and disable clear text passwords. Finally,
 
 
 ## Bibliography
-1. [https://wiki.apache.org/httpd/ClientDeniedByServerConfiguration]
-2. [https://hk.saowen.com/a/0a0048ca7141440d0553425e8df46b16cdf4c13f50df4c5888256393d34bb1b9]
-3. [https://stackoverflow.com/questions/38298652/permissionerror-errno-13-permission-denied-flask-run]
-4. [https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04]
-5. [https://github.com/hicham-alaoui/ha-linux-server-config]
+1. https://wiki.apache.org/httpd/ClientDeniedByServerConfiguration
+2. https://hk.saowen.com/a/0a0048ca7141440d0553425e8df46b16cdf4c13f50df4c5888256393d34bb1b9
+3. https://stackoverflow.com/questions/38298652/permissionerror-errno-13-permission-denied-flask-un]
+4. https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-1-04]
+5. https://github.com/hicham-alaoui/ha-linux-server-config
 6. 
