@@ -1,13 +1,13 @@
 # linux-server
 
 ## Introduction
-In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL.
+In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL. In order to access the website, please go to [http://18.191.16.213.xip.io/].
 
 ## Configurations
 Several configurations needed to be made to this server before it was functional. These are described below.
 
 ### Acquire Lightsail Machine
-Open an AWS account [here](aws.amazon.com), and create an OS only machine with Ubuntu.
+Open an AWS account [here](aws.amazon.com), and create an OS only machine with Ubuntu. Start by going to the Networking tab and making sure the following four ports are allowed: 22/tcp, 2200/tcp, 123/udp, and 80/tcp.
 
 
 ### Install updates to your system
@@ -19,12 +19,28 @@ sudo apt full-upgrade
 ```
 
 ### Create the `grader` user and give it sudo privileges
-Connect to your Lightsail machine using the built-in browser SSH window and run the following commands.
+Connect to your Lightsail machine using the built-in browser SSH window and run the following commands. We will set the password for `grader` to be `grader`.
 
 ```
 sudo adduser grader
 sudo usermod -aG sudo grader
 ```
+
+### Add an SSH key for the `grader` user
+Run `ssh-keygen`, outputting to the default location. Next, we will have to temporarily allow password authentication for SSH because our `grader` account has a password and we will need that to set up the SSH key.
+
+Therefore, edit `/etc/ssh/sshd_config` and look for a block that says,
+```
+# Change to no to disable tunnelled clear text passwords
+PasswordAuthentication no
+``` 
+
+Change it to `PasswordAuthentication no`. Back on the client machine, run the following in order to copy the SSH key to the server, and enter the password when prompted.
+```
+ssh-copy-id grader@18.191.16.213 -p 2200
+```
+
+Now go back to the `sshd_config` file and disable clear text passwords.
 
 ### Configure and enable UFW
 Allow only three specific ports, enable the `ufw`, and finally restart the ssh service.
