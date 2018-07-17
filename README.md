@@ -75,7 +75,10 @@ Now go back to the `sshd_config` file and disable clear text passwords. Finally,
 
 
 ### Install and configure Apache
+1. var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir
 
+2. var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir var www /var/www/ text ofoo bar baz foo bom `/var/www/` dir
+ 
 
 
 ## Bibliography
