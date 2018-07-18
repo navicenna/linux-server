@@ -1,5 +1,5 @@
 # linux-server #
-In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL. In order to access the website, please go to http://18.191.16.213.xip.io/. The URL is 18.191.16.213.
+In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL. In order to access the website, please go to http://18.191.16.213.xip.io/. The URL is 18.191.16.213. The private key for the grader account is included in this repo.
 
 ----
 ## Summary of Installed Software ##
