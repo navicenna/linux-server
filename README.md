@@ -81,7 +81,7 @@ Note: in this section, all packages are assumed to be already installed, as note
 1. Clone the `item-catalog` git repo into `/var/www/`
 2. Create a `Catalog.conf` file in `/etc/apache2/sites-available`:
 
-    ```Apache
+    ```apacheconf
     <VirtualHost *>
 
         ServerName 18.191.16.213
@@ -101,7 +101,7 @@ Note: in this section, all packages are assumed to be already installed, as note
     ```
 3. Create `Catalog.wsgi` in `/var/www/catalog/`:
 
-    ```Python
+    ```python
     import sys
     sys.path.insert(0, '/var/www/catalog')
     from n_final import app as application
@@ -128,13 +128,13 @@ Note: in this section, all packages are assumed to be already installed, as note
 
 7. Edit `n_database.py` and `n_final.py` in `var/www/catalog` and find the line that says:
 
-    ```Python
+    ```python
     engine = create_engine([...SQLite...])
     ```
 
     Replace that line with 
     
-    ```Python
+    ```python
     engine = create_engine('postgresql://catalog:password@localhost/catalog')
     ```
 --------
