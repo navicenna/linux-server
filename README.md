@@ -41,8 +41,8 @@ sudo service ssh restart
 ```
 
 
-### Change SSH port from 22 to 2200
-Edit `/etc/ssh/ssdh_config` and change `Port 22` to `Port 2200`. Restart SSH via `sudo service ssh restart`.
+### Change SSH port from 22 to 2200 and disable `RootLogin`
+Edit `/etc/ssh/ssdh_config` and change `Port 22` to `Port 2200`. Also, change the  `PermitRootLogin` property from `prohibit-password` to `no`. Restart SSH via `sudo service ssh restart`.
 
 
 ### Configure the time zone
