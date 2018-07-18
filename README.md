@@ -137,6 +137,19 @@ Note: in this section, all packages are assumed to be already installed, as note
     ```python
     engine = create_engine('postgresql://catalog:password@localhost/catalog')
     ```
+
+### Final Steps
+Now we need to disable to default Apache website and enable our newly created configuration, and finally restart the Apache server. Run the following commands to accomplish this.
+
+```
+sudo a2dissite 000-default.conf
+sudo a2ensite Catalog.conf
+sudo service apache2 restart
+```
+
+Now everything should be configured and working properly, and we can access the site at http://18.191.16.213.xip.io/
+
+
 --------
 ## Bibliography
 1. https://wiki.apache.org/httpd/ClientDeniedByServerConfiguration
@@ -144,4 +157,3 @@ Note: in this section, all packages are assumed to be already installed, as note
 3. https://stackoverflow.com/questions/38298652/permissionerror-errno-13-permission-denied-flask-run
 4. https://www.digitalocean.com/community/tutorials/how-to-install-and-use-postgresql-on-ubuntu-16-04
 5. https://github.com/hicham-alaoui/ha-linux-server-config
-6. 
