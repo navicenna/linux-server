@@ -81,7 +81,7 @@ Note: in this section, all packages are assumed to be already installed, as note
 1. Clone the `item-catalog` git repo into `/var/www/`
 2. Create a `Catalog.conf` file in `/etc/apache2/sites-available`:
 
-    ```
+    ```Apache
     <VirtualHost *>
 
         ServerName 18.191.16.213
@@ -101,7 +101,7 @@ Note: in this section, all packages are assumed to be already installed, as note
     ```
 3. Create `Catalog.wsgi` in `/var/www/catalog/`:
 
-    ```
+    ```Python
     import sys
     sys.path.insert(0, '/var/www/catalog')
     from n_final import app as application
@@ -126,8 +126,17 @@ Note: in this section, all packages are assumed to be already installed, as note
 
     Change the `peer` to `md5` so we can connect to the database with the created username and password.
 
-7. 
+7. Edit `n_database.py` and `n_final.py` in `var/www/catalog` and find the line that says:
 
+    ```Python
+    engine = create_engine([...SQLite...])
+    ```
+
+    Replace that line with 
+    
+    ```Python
+    engine = create_engine('postgresql://catalog:password@localhost/catalog')
+    ```
 --------
 ## Bibliography
 1. https://wiki.apache.org/httpd/ClientDeniedByServerConfiguration
