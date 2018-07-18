@@ -77,8 +77,9 @@ Now go back to the `sshd_config` file and disable clear text passwords. Finally,
 ### Install and configure Apache
 Note: in this section, all packages are assumed to be already installed, as noted in the Package Summary section above.
 
-1. Clone the `item-catalog` git repo into `var/www/`
-2. cool beans
+1. Clone the `item-catalog` git repo into `/var/www/`
+2. Create a 
+    .conf file
 
  
 
