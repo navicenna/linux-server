@@ -1,5 +1,5 @@
 # linux-server #
-In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL. In order to access the website, please go to [http://18.191.16.213.xip.io/].
+In this project, I set up a linux server on an AWS Lightsail Ubuntu machine. The server is running Apache, and the web application is based on Flask and PostgreSQL. In order to access the website, please go to http://18.191.16.213.xip.io/. The URL is 18.191.16.213.
 
 ## Summary of Installed Software ##
 These are the main packages that needed to be installed on the server. I found that installing Python libraries via `sudo apt install python3-[package]` was more reliable than Pip, because Pip installed the Python packages only to my user directory and then Python had a hard time detecting them when running a file located in the `/var/www/` directory.
@@ -74,7 +74,7 @@ ssh-copy-id grader@18.191.16.213 -p 2200
 Now go back to the `sshd_config` file and disable clear text passwords. Finally, restart the SSH service as above.
 
 
-### Install and configure Apache
+### Configure Apache
 Note: in this section, all packages are assumed to be already installed, as noted in the Package Summary section above.
 
 1. Clone the `item-catalog` git repo into `/var/www/`
@@ -98,9 +98,34 @@ Note: in this section, all packages are assumed to be already installed, as note
 
     </VirtualHost>
     ```
+3. Create `Catalog.wsgi` in `/var/www/catalog/`:
 
+    ```
+    import sys
+    sys.path.insert(0, '/var/www/catalog')
+    from n_final import app as application
+    ```
  
+4. We're going to be using xip.io to help create a Google OAuth-compatible URL, so go to the Google Developer Console of the app and add http://18.191.16.213.xip.io to the authorized redirect URIs and Authorized JavaScript origins.
 
+
+### Setup PostgreSQL Database
+
+1. Run `su - postgres` and `psql` to enter into the Postgres console.
+2. Create the `catalog` database.
+3. Create the `catalog` user and grant it all privileges on the `catalog` database.
+4. Alter `catalog` to have the `password` as its password.
+5. Run `\q` and `exit` to get back to bash.
+6. Edit `/etc/postgresql/9.5/main/pg_hba.conf` and find the line that says:
+
+    ```
+    # Database administrative login by Unix domain socket
+    local   all             postgres                                peer
+    ```
+
+    Change the `peer` to `md5` so we can connect to the database with the created username and password.
+
+7. 
 
 ## Bibliography
 1. https://wiki.apache.org/httpd/ClientDeniedByServerConfiguration
