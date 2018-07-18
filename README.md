@@ -78,8 +78,26 @@ Now go back to the `sshd_config` file and disable clear text passwords. Finally,
 Note: in this section, all packages are assumed to be already installed, as noted in the Package Summary section above.
 
 1. Clone the `item-catalog` git repo into `/var/www/`
-2. Create a 
-    .conf file
+2. Create a `Catalog.conf` file in `/etc/apache2/sites-available`:
+
+    ```
+    <VirtualHost *>
+
+        ServerName 18.191.16.213
+        WSGIScriptAlias / /var/www/catalog/Catalog.wsgi
+        WSGIDaemonProcess catalog-server
+
+        <Directory /var/www/catalog>
+
+                WSGIProcessGroup catalog-server
+                WSGIApplicationGroup %{GLOBAL}
+                Order deny,allow
+                Allow from all
+
+        </Directory>
+
+    </VirtualHost>
+    ```
 
  
 
